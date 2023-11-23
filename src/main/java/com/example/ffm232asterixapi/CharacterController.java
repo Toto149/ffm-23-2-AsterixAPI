@@ -24,5 +24,13 @@ public class CharacterController {
     public Character getById(@PathVariable String id){
         return service.findById(id);
     }
+    @PutMapping("/{id}")
+    public Character changeCharacter(@RequestBody Character character,@PathVariable String id){
+        return service.changeCharacter(getById(id));
+    }
+    @DeleteMapping("/{id}")
+    public void deleteCharacterById(@PathVariable String id){
+        service.deleteCharacterById(id);
+    }
 
 }

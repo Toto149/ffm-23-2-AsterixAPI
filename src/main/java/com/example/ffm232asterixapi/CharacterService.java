@@ -21,4 +21,13 @@ public class CharacterService {
     public Character findById(String id) {
         return repo.findById(id).orElseThrow();
     }
+
+    public Character changeCharacter(Character byId) {
+        repo.deleteById(byId.id());
+        return repo.save(byId);
+    }
+
+    public void deleteCharacterById(String id) {
+        repo.deleteById(id);
+    }
 }
